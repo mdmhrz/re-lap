@@ -11,16 +11,22 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const { data: session, status } = useSession();
+    console.log(session);
+    const handleLogout = () => {
+        signOut()
+    };
 
     return (
         <nav className="  px-6 bg-background border-b border-border py-4 ">
-            <div className=" container mx-auto flex items-center justify-between">
+            <div className="max-w-7xl mx-auto flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-lg font-bold">
-                    ByteCart
+                    ReLap
                 </Link>
 
                 {/* Desktop Links */}
@@ -34,6 +40,19 @@ export default function Navbar() {
                     <Link href="/contact" className="hover:text-primary">
                         Contact
                     </Link>
+                    {
+                        status === 'authenticated' ? <Button onClick={() => handleLogout()} className="hover:text-primary">
+                            Logout
+                        </Button> : <><Link href="/auth/login" className="hover:text-primary">
+                            Login
+                        </Link>
+                            <Link href="/auth/register" className="hover:text-primary">
+                                Register
+                            </Link></>
+                    }
+
+
+
                     <ModeToggle></ModeToggle>
 
                     {/* User Dropdown */}

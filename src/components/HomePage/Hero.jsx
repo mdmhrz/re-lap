@@ -10,11 +10,11 @@ export default function Hero() {
 
                 {/* Left Content */}
                 <div className="flex-1">
-                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-                        Discover the Future of <span className="text-primary">Electronics</span>
+                    <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-20 mb-6">
+                        Reliable Laptops, Smarter Prices
                     </h1>
                     <p className="text-muted-foreground mb-6 sm:text-lg">
-                        ByteCart brings you the latest gadgets, smart devices, and accessories at unbeatable prices. Upgrade your tech lifestyle today!
+                        Shop refurbished laptops that save your money and the planet — quality tested, budget friendly.
                     </p>
                     <div className="flex gap-4 flex-wrap">
                         <Button className="bg-primary hover:bg-primary/90 text-white">
@@ -30,7 +30,7 @@ export default function Hero() {
                 <div className="flex-1 relative w-full max-w-lg lg:max-w-xl">
                     <div className="relative w-full h-80 sm:h-96 lg:h-[28rem]">
                         <Image
-                            src="/hero-electronics.png" // Replace with your hero image
+                            src="/banner/laptops.png" // Replace with your hero image
                             alt="Electronics"
                             fill
                             className="object-contain"

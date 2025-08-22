@@ -7,13 +7,13 @@ import Link from "next/link";
 export default function Footer() {
     return (
         <footer className="bg-background border-t border-border text-muted-foreground">
-            <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
 
                 {/* Logo & Description */}
                 <div>
-                    <h2 className="text-xl font-bold">MyBrand</h2>
+                    <h2 className="text-xl font-bold">ReLap</h2>
                     <p className="mt-2 text-sm text-muted-foreground">
-                        Building modern web experiences with Next.js and Shadcn UI.
+                        Redefining Your Laptop Experience
                     </p>
                 </div>
 
