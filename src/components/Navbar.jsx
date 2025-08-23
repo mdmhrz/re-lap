@@ -16,7 +16,7 @@ import { signOut, useSession } from "next-auth/react";
 export default function Navbar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
     const { data: session, status } = useSession();
-    console.log(session);
+    // console.log(session);
     const handleLogout = () => {
         signOut()
     };
@@ -41,13 +41,11 @@ export default function Navbar() {
                         Contact
                     </Link>
                     {
-                        status === 'authenticated' ? <Button onClick={() => handleLogout()} className="hover:text-primary">
-                            Logout
-                        </Button> : <><Link href="/auth/login" className="hover:text-primary">
-                            Login
+                        status === 'authenticated' ? '' : <><Link href="/auth/login" className="hover:text-primary">
+                            <Button>Login</Button>
                         </Link>
                             <Link href="/auth/register" className="hover:text-primary">
-                                Register
+                                <Button className={'bg-background border  border-foreground text-accent-foreground outline-1'}>Register</Button>
                             </Link></>
                     }
 
@@ -63,10 +61,11 @@ export default function Navbar() {
                                 <AvatarFallback>U</AvatarFallback>
                             </Avatar>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end">
-                            <DropdownMenuItem>Profile</DropdownMenuItem>
-                            <DropdownMenuItem>Settings</DropdownMenuItem>
-                            <DropdownMenuItem>Logout</DropdownMenuItem>
+                        <DropdownMenuContent align="end" className={'flex items-center justify-center flex-col gap-3 p-3'}>
+                            <DropdownMenuItem><Link href={'/dashboard/add-product'}>Add Product</Link></DropdownMenuItem>
+                            {status === 'authenticated' && <Button size={'sm'} onClick={() => handleLogout()} >
+                                Logout
+                            </Button>}
                         </DropdownMenuContent>
                     </DropdownMenu>
                 </div>
@@ -96,6 +95,6 @@ export default function Navbar() {
                     </div>
                 )}
             </div>
-        </nav>
+        </nav >
     );
 }

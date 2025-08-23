@@ -1,13 +1,31 @@
 import { Button } from '@/components/ui/button';
 import { Separator } from '@radix-ui/react-dropdown-menu';
-import React, { useState } from 'react';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const SocialLogin = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
+    const session = useSession();
+
     const handleGoogleLogin = () => {
-        console.log('Google login clicked');
-        // Implement Google OAuth here
+        setIsLoading(true)
+        localStorage.setItem('login_provider', 'google');
+        signIn('google');
     };
+
+    useEffect(() => {
+        if (session?.status === 'authenticated') {
+            const provider = localStorage.getItem('login_provider');
+            toast.success(`You've successfully logged in by ${provider}`);
+            setIsLoading(false)
+            router.push('/');
+            localStorage.removeItem('login_provider');
+        }
+    }, [session?.status]);
 
     return (
         <>
