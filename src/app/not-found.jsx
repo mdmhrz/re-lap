@@ -1,12 +1,13 @@
+
+import { NotFoundPage } from '@/components/ErrorPage';
 import React from 'react';
 
-const error = () => {
+const NotFound = () => {
     return (
         <div>
-            ভুল জায়গায় এসে গেছো। ফেরৎ যাও।
-
+            <NotFoundPage ></NotFoundPage>
         </div>
     );
 };
 
-export default error;
+export default NotFound;

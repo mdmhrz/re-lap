@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import LogoIcon from "./LogoIcon";
 
 export default function Footer() {
     return (
@@ -11,9 +12,12 @@ export default function Footer() {
 
                 {/* Logo & Description */}
                 <div>
-                    <h2 className="text-xl font-bold">ReLap</h2>
+                    <div className="flex items-center">
+                        <LogoIcon></LogoIcon>
+                        <h2 className="text-xl font-bold">ReLap</h2>
+                    </div>
                     <p className="mt-2 text-sm text-muted-foreground">
-                        Redefining Your Laptop Experience
+                        Affordable refurbished and second-hand laptops with quality you can trust
                     </p>
                 </div>
 
@@ -90,7 +94,7 @@ export default function Footer() {
 
             {/* Bottom Bar */}
             <div className="border-t border-border mt-8 py-4 text-center text-sm text-muted-foreground">
-                © {new Date().getFullYear()} MyBrand. All rights reserved.
+                © {new Date().getFullYear()} ReLap. All rights reserved.
             </div>
         </footer>
     );

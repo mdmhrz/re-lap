@@ -12,6 +12,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import { ModeToggle } from "./mode-toggle";
 import { signOut, useSession } from "next-auth/react";
+import LogoIcon from "./LogoIcon";
+import { Menu } from 'lucide-react';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,10 +24,11 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="  px-6 bg-background border-b border-border py-4 ">
-            <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <nav className="  px-6 bg-background border-b border-border py-4 sticky top-0 z-5 ">
+            <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-lg font-bold">
+                <Link href="/" className="text-lg font-bold flex items-center">
+                    <LogoIcon size={34}></LogoIcon>
                     ReLap
                 </Link>
 
@@ -76,7 +79,7 @@ export default function Navbar() {
                         variant="ghost"
                         onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
                     >
-                        {isMobileMenuOpen ? "Close" : "Menu"}
+                        {isMobileMenuOpen ? "Close" : <Menu className="h-10 w-10" />}
                     </Button>
                 </div>
 

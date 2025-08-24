@@ -8,6 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Loader2, Plus, Upload } from 'lucide-react';
+import { toast } from 'react-toastify';
 
 const AddProduct = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -43,16 +44,27 @@ const AddProduct = () => {
         setIsLoading(true);
         try {
             await new Promise(resolve => setTimeout(resolve, 2000));
-            console.log('Product data:', data);
+            const response = await fetch("http://localhost:3000/api/product", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to add product");
+            }
+
+            console.log("After success", response);
             reset();
-            alert('Product added successfully!');
+            toast.success("Product added successfully!");
         } catch (error) {
-            console.error('Error adding product:', error);
-            alert('Error adding product. Please try again.');
+            console.error("Error adding product:", error);
+            toast.error("Error adding product. Please try again.");
         } finally {
             setIsLoading(false);
         }
     };
+
 
     const handleSelectChange = (field, value) => {
         setValue(field, value);

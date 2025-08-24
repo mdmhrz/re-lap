@@ -17,7 +17,7 @@ export default function Hero() {
                         Shop refurbished laptops that save your money and the planet — quality tested, budget friendly.
                     </p>
                     <div className="flex gap-4 flex-wrap">
-                        <Button className="bg-primary hover:bg-primary/90 text-white">
+                        <Button className="bg-foreground hover:bg-primary/90 text-background">
                             Shop Now
                         </Button>
                         <Button variant="outline" className="border-muted-foreground hover:bg-muted">
