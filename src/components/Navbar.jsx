@@ -14,6 +14,7 @@ import { ModeToggle } from "./mode-toggle";
 import { signOut, useSession } from "next-auth/react";
 import LogoIcon from "./LogoIcon";
 import { Menu } from 'lucide-react';
+import Image from "next/image";
 
 export default function Navbar() {
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,9 +28,8 @@ export default function Navbar() {
         <nav className="  px-6 bg-background border-b border-border py-4 sticky top-0 z-5 ">
             <div className="container mx-auto flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-lg font-bold flex items-center">
-                    <LogoIcon size={34}></LogoIcon>
-                    ReLap
+                <Link href="/" className="border">
+                    <Image width={120} height={10} src='/Relap.svg' alt="Relap logo"></Image>
                 </Link>
 
                 {/* Desktop Links */}
