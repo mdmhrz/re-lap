@@ -5,7 +5,7 @@ import ProductsCard from '@/components/ProductsCard';
 
 
 const FeaturedProducts = async () => {
-    const laptops = await dbConnect(collectionName.LAPTOPS).find().toArray()
+    const laptops = await dbConnect(collectionName.LAPTOPS).find().toArray();
     // console.log(laptops);
     return (
         <section className='max-w-7xl mx-auto px-6 py-10'>

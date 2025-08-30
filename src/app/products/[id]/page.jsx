@@ -41,9 +41,9 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 const ProductDetails = async ({ params }) => {
-    const p = await params;
-    // Fetch product directly from MongoDB
-    const laptop = await dbConnect(collectionName.LAPTOPS).findOne({ _id: new ObjectId(p.id) });
+    const p = await params; // no need for await
+    const laptop = await dbConnect(collectionName.LAPTOPS).findOne({ _id: new ObjectId(p.id) })
+
 
     if (!laptop) {
         return (
