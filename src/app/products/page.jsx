@@ -3,6 +3,7 @@ import dbConnect, { collectionName } from '@/lib/dbConnect';
 import ProductsCard from '@/components/ProductsCard';
 
 
+
 const FeaturedProducts = async () => {
     const laptops = await dbConnect(collectionName.LAPTOPS).find().toArray()
     // console.log(laptops);

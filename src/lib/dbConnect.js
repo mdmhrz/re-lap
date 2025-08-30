@@ -15,6 +15,7 @@ function dbConnect(collectionName) {
             deprecationErrors: true,
         }
     });
+    // console.log(client);
 
     return client.db(process.env.DB_NAME).collection(collectionName);
 }
